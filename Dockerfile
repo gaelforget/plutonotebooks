@@ -30,10 +30,10 @@ RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
 USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential && \
+    apt-get install gfortran && \
+    apt-get install libnetcdf-dev && \
+    apt-get install libnetcdff-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-    apt-get gfortran
-    apt-get libnetcdf-dev
-    apt-get libnetcdff-dev
 RUN julia create_sysimage.jl
 
 USER ${NB_USER}
