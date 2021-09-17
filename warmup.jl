@@ -1,9 +1,12 @@
-using StatsPlots
-using Distributions
+using ClimateModels
+using MITgcmTools
+using Pluto
+using PlutoUI
+using StochasticDiffEq
+using UnicodePlots
 
-mu = 3.14;
-sigma = 1.0;
-x = [mu - 5 * sigma:0.1:mu + 5 * sigma;];
-N = Normal(mu, sigma^2);
-p = plot(x, pdf.(N, x));
-display(p)
+MC=MITgcm_config(configuration="global_with_exf")
+setup(MC)
+# build(MC,"--allow-skip")
+# launch(MC)
+
