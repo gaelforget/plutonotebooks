@@ -6,7 +6,7 @@ using StochasticDiffEq
 using UnicodePlots
 
 MC=MITgcm_config(configuration="global_with_exf")
-setup(MC)
+#setup(MC)
 # build(MC,"--allow-skip")
 # launch(MC)
 
